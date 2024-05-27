@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja On Grid</title>
+<link rel="stylesheet" href="ongrid.css">
+<style>
+    .card {
+        position: relative;
+    }
+    .card img {
+        width: 100%;
+        height: auto;
+    }
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1;
+    }
+    .prev {
+        left: 0;
+    }
+    .next {
+        right: 0;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="plataforma-solar.html">Plataforma Solar</a></li>
+                <li><a href="loja-on-grid.html" class="active">Loja de On Grid</a></li>
+                <li><a href="loja-off-grid.html">Loja de OFF Grid</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<div class="container">
+    <aside class="filter-sidebar">
+        <div class="filter-group">
+            <h2>Ordenar Por</h2>
+            <select>
+                <option>Destaques</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <h2>Kit ou Avulso</h2>
+            <select>
+                <option>Todos</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <h2>Filtrar Por</h2>
+            <label for="estado">Estado de entrega do Kit</label>
+            <select id="estado">
+                <option>Paraná</option>
+            </select>
+        </div>
+    </aside>
+    <section class="product-grid">
+        <div class="card">
+            <div class="prev" onclick="prevImage()">&#10094;</div>
+            <div class="next" onclick="nextImage()">&#10095;</div>
+            <img src="5.jpg" alt="Nome do Produto" id="productImage">
+            <h3>Gerador Solar On Grid 73,7 kWp</h3>
+            <p>Tensão: 127/220 - trifásico</p>
+            <p>R$ 121.017,62</p>
+            <button>Comprar</button>
+        </div>
+    </section>
+</div>
+
+<script>
+    var images = ["5.jpg", "chico.jpeg"];
+    var currentImageIndex = 0;
+
+    function nextImage() {
+        currentImageIndex++;
+        if (currentImageIndex >= images.length) {
+            currentImageIndex = 0;
+        }
+        updateImage();
+    }
+
+    function prevImage() {
+        currentImageIndex--;
+        if (currentImageIndex < 0) {
+            currentImageIndex = images.length - 1;
+        }
+        updateImage();
+    }
+
+    function updateImage() {
+        var image = document.getElementById("productImage");
+        image.src = images[currentImageIndex];
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .success {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+</style>
+<script>
+  // Função para capturar e exibir mensagem de sucesso da URL
+  function exibirMensagemSucesso() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var sucesso = urlParams.get('sucesso');
+    if (sucesso) {
+      var successDiv = document.createElement('div');
+      successDiv.classList.add('success');
+      successDiv.textContent = sucesso;
+      document.body.appendChild(successDiv);
+    }
+  }
+
+  // Chamada da função ao carregar a página
+  window.onload = exibirMensagemSucesso;
+</script>
+</head>
+<body>
+
+<div class="login-container">
+  <h1>EcoTech</h1>
+  <select>
+    <option>Português (Brasil)</option>
+  </select>
+
+  <form action="poslogin.html" method="post">
+    <input type="email" name="email" placeholder="E-mail, CPF ou matrícula" required>
+    <input type="password" name="password" placeholder="Senha" required>
+    <div class="checkbox-container">
+      <input type="checkbox" id="stay-signed-in" name="staySignedIn">
+      <label for="stay-signed-in">Mantenha-me conectado</label>
+    </div>
+    <input type="submit" value="Entrar">
+  </form>
+  
+  <a href="#">Redefinir senha</a>
+  <a href="register.html">Cadastre-se</a>
+</div>
+
+</body>
+</html>

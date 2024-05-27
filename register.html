@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="login-container">
+  <h1>Cadastro - EcoTech</h1>
+  
+  <!-- Exibindo o erro no topo da tela -->
+  <?php if($erro != "") { ?>
+    <div class="error"><?php echo $erro; ?></div>
+  <?php } ?>
+
+  <!-- Exibindo a mensagem de sucesso -->
+  <?php if($sucesso != "") { ?>
+    <div class="success"><?php echo $sucesso; ?></div>
+  <?php } ?>
+
+  <form action="register.php" method="post">
+    <input type="email" name="email" placeholder="E-mail" required>
+    <input type="text" name="cpf" placeholder="CPF" required>
+    <input type="text" name="matricula" placeholder="Matrícula" required>
+    <input type="password" name="password" placeholder="Senha" required>
+    <input type="submit" value="Cadastrar">
+  </form>
+</div>
+<!-- Exibir a mensagem de sucesso -->
+<?php if($sucesso != "") { ?>
+  <div class="success"><?php echo $sucesso; ?></div>
+<?php } ?>
+
+</body>
+</html>
